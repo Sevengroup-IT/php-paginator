@@ -1,5 +1,5 @@
 {
-    "name": "sevengroup/paginator",
+    "name": "tbrouard/paginator",
     "type": "library",
     "description": "A lightweight PHP paginator, for generating pagination controls in the style of Stack Overflow and Flickr. The 'first' and 'last' page links are shown inline as page numbers, and excess page numbers are replaced by ellipses.",
     "keywords": ["paginator", "pagination", "pager"],
