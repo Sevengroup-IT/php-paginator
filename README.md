@@ -40,7 +40,7 @@ Here's a quick example using the defaults:
     
     require '../vendor/autoload.php';
 
-    use Sevengroup-IT\Paginator;
+    use Sevengroup\Paginator;
 
     $totalItems = 1000;
     $itemsPerPage = 50;
@@ -92,7 +92,7 @@ To render it with one of the other example templates, just make sure the variabl
 
     $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
     
-    include '../vendor/Sevengroup-IT/paginator/examples/pagerSmall.phtml';
+    include '../vendor/tbrouard/paginator/examples/pagerSmall.phtml';
     
 <img src="examples/screenshot-small-mid.png" width="220"><br/>
 
