@@ -33,7 +33,7 @@ class Paginator
 
     protected function updateNumPages()
     {
-        $this->numPages = ($this->itemsPerPage == 0 ? 0 : (int) ceil($this->totalItems/$this->itemsPerPage));
+        $this->numPages = ($this->itemsPerPage == 0 ? 0 : (int)ceil($this->totalItems / $this->itemsPerPage));
     }
 
     /**
@@ -139,6 +139,42 @@ class Paginator
         return str_replace(self::NUM_PLACEHOLDER, $pageNum, $this->urlPattern);
     }
 
+    public function getFirstPage()
+    {
+        if ($this->currentPage > 1) {
+            return 1;
+        }
+
+        return null;
+    }
+
+    public function getFirstUrl()
+    {
+        if (!$this->getFirstPage()) {
+            return null;
+        }
+
+        return $this->getPageUrl($this->getFirstPage());
+    }
+
+    public function getLastPage()
+    {
+        if ($this->currentPage < $this->numPages) {
+            return $this->numPages;
+        }
+
+        return null;
+    }
+
+    public function getLastUrl()
+    {
+        if (!$this->getLastPage()) {
+            return null;
+        }
+
+        return $this->getPageUrl($this->getLastPage());
+    }
+
     public function getNextPage()
     {
         if ($this->currentPage < $this->numPages) {
@@ -209,7 +245,7 @@ class Paginator
         } else {
 
             // Determine the sliding range, centered around the current page.
-            $numAdjacents = (int) floor(($this->maxPagesToShow - 3) / 2);
+            $numAdjacents = (int)floor(($this->maxPagesToShow - 3) / 2);
 
             if ($this->currentPage + $numAdjacents > $this->numPages) {
                 $slidingStart = $this->numPages - $this->maxPagesToShow + 2;
@@ -281,7 +317,7 @@ class Paginator
 
         $html = '<ul class="pagination">';
         if ($this->getPrevUrl()) {
-            $html .= '<li><a href="' . htmlspecialchars($this->getPrevUrl()) . '">&laquo; '. $this->previousText .'</a></li>';
+            $html .= '<li><a href="' . htmlspecialchars($this->getPrevUrl()) . '">&laquo; ' . $this->previousText . '</a></li>';
         }
 
         foreach ($this->getPages() as $page) {
@@ -293,7 +329,7 @@ class Paginator
         }
 
         if ($this->getNextUrl()) {
-            $html .= '<li><a href="' . htmlspecialchars($this->getNextUrl()) . '">'. $this->nextText .' &raquo;</a></li>';
+            $html .= '<li><a href="' . htmlspecialchars($this->getNextUrl()) . '">' . $this->nextText . ' &raquo;</a></li>';
         }
         $html .= '</ul>';
 
