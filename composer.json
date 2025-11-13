@@ -1,5 +1,5 @@
 {
-    "name": "tbrouard/paginator",
+    "name": "sevengroup/paginator",
     "type": "library",
     "description": "A lightweight PHP paginator, for generating pagination controls in the style of Stack Overflow and Flickr. The 'first' and 'last' page links are shown inline as page numbers, and excess page numbers are replaced by ellipses.",
     "keywords": ["paginator", "pagination", "pager"],
@@ -24,10 +24,10 @@
         "phpunit/phpunit": "~4.2"
     },
     "autoload": {
-        "psr-0": {"Sevengroup-IT": "src/"}
+        "psr-0": {"sevengroup": "src/"}
     },
     "autoload-dev": {
-        "psr-0": {"Sevengroup-IT\\Tests": "tests/"}
+        "psr-0": {"sevengroup\\Tests": "tests/"}
     }
 
 }
