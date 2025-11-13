@@ -3,7 +3,7 @@
     "type": "library",
     "description": "A lightweight PHP paginator, for generating pagination controls in the style of Stack Overflow and Flickr. The 'first' and 'last' page links are shown inline as page numbers, and excess page numbers are replaced by ellipses.",
     "keywords": ["paginator", "pagination", "pager"],
-    "homepage": "http://github.com/jasongrimes/php-paginator",
+    "homepage": "https://github.com/Sevengroup-IT/php-paginator",
     "license": "MIT",
     "authors": [
         {
@@ -24,10 +24,10 @@
         "phpunit/phpunit": "~4.2"
     },
     "autoload": {
-        "psr-0": {"JasonGrimes": "src/"}
+        "psr-0": {"Sevengroup-IT": "src/"}
     },
     "autoload-dev": {
-        "psr-0": {"JasonGrimes\\Tests": "tests/"}
+        "psr-0": {"Sevengroup-IT\\Tests": "tests/"}
     }
 
 }
