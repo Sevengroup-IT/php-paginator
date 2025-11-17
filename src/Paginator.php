@@ -412,7 +412,7 @@ class Paginator
     
     public function setLastText($text)
     {
-        $this->lastText = $text,
+        $this->lastText = $text;
         return $this;
     }
 
