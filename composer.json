@@ -24,10 +24,10 @@
         "phpunit/phpunit": "~4.2"
     },
     "autoload": {
-        "psr-0": {"Sevengroup": "src/"}
+        "psr-4": {"Sevengroup\\": "src/"}
     },
     "autoload-dev": {
-        "psr-0": {"Sevengroup\\Tests": "tests/"}
+        "psr-4": {"Sevengroup\\Tests\\": "tests/"}
     }
 
 }
