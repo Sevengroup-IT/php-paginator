@@ -12,8 +12,11 @@ class Paginator
     protected $currentPage;
     protected $urlPattern;
     protected $maxPagesToShow = 10;
+    protected $firstText = 'First';
     protected $previousText = 'Previous';
     protected $nextText = 'Next';
+    protected $lastText = 'Last';
+
 
     /**
      * @param int $totalItems The total number of items.
@@ -317,7 +320,8 @@ class Paginator
 
         $html = '<ul class="pagination">';
         if ($this->getPrevUrl()) {
-            $html .= '<li><a href="' . htmlspecialchars($this->getPrevUrl()) . '">&laquo; ' . $this->previousText . '</a></li>';
+            $html .= '<li><a href="' . htmlspecialchars($this->getFirstUrl()) . '">|&laquo; ' . $this->getFirstText() . '</a></li>';
+            $html .= '<li><a href="' . htmlspecialchars($this->getPrevUrl()) . '">&laquo; ' . $this->getPreviousText() . '</a></li>';
         }
 
         foreach ($this->getPages() as $page) {
@@ -329,7 +333,8 @@ class Paginator
         }
 
         if ($this->getNextUrl()) {
-            $html .= '<li><a href="' . htmlspecialchars($this->getNextUrl()) . '">' . $this->nextText . ' &raquo;</a></li>';
+            $html .= '<li><a href="' . htmlspecialchars($this->getNextUrl()) . '">' . $this->getNextText() . ' &raquo;</a></li>';
+            $html .= '<li><a href="' . htmlspecialchars($this->getLastUrl()) . '">' . $this->getLastText() . ' &raquo;|</a></li>';
         }
         $html .= '</ul>';
 
@@ -367,15 +372,48 @@ class Paginator
         return $last;
     }
 
+    public function getFirstText()
+    {
+        return $this->firstText;
+    }
+    
+    public function setFirstText($text)
+    {
+        $this->firstText = $text;
+        return $this;
+    }
+
+    public function getPreviousText()
+    {
+        return $this->previousText;
+    }
+    
     public function setPreviousText($text)
     {
         $this->previousText = $text;
         return $this;
     }
 
+    public function getNextText()
+    {
+        return $this->nextText;
+    }
+    
     public function setNextText($text)
     {
         $this->nextText = $text;
         return $this;
     }
+
+    public function getLastText()
+    {
+        return $this->lastText;
+    }
+    
+    public function setLastText($text)
+    {
+        $this->lastText = $text,
+        return $this;
+    }
+
 }
