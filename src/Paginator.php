@@ -223,11 +223,11 @@ class Paginator
      * Example:
      * array(
      *     array ('num' => 1,     'url' => '/example/page/1',  'isCurrent' => false),
-     *     array ('num' => '…', 'url' => NULL,               'isCurrent' => false),
+     *     array ('num' => '...', 'url' => NULL,               'isCurrent' => false),
      *     array ('num' => 3,     'url' => '/example/page/3',  'isCurrent' => false),
      *     array ('num' => 4,     'url' => '/example/page/4',  'isCurrent' => true ),
      *     array ('num' => 5,     'url' => '/example/page/5',  'isCurrent' => false),
-     *     array ('num' => '…', 'url' => NULL,               'isCurrent' => false),
+     *     array ('num' => '...', 'url' => NULL,               'isCurrent' => false),
      *     array ('num' => 10,    'url' => '/example/page/10', 'isCurrent' => false),
      * )
      *
@@ -301,7 +301,7 @@ class Paginator
     protected function createPageEllipsis()
     {
         return array(
-            'num' => '…',
+            'num' => '...',
             'url' => null,
             'isCurrent' => false,
         );
