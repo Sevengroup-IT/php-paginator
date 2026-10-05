@@ -9,7 +9,7 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
     /** @var Paginator */
     protected $paginator;
 
-    public function setUp()
+    public function setUp(): void
     {
         $numItems = 100;
         $itemsPerPage = 10;
@@ -19,7 +19,7 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
         $this->paginator = new Paginator($numItems, $itemsPerPage, $currentPage, $urlPattern);
     }
 
-    public function testGetNextPage()
+    public function testGetNextPage(): void
     {
         $this->paginator->setCurrentPage(1);
         $this->assertEquals(2, $this->paginator->getNextPage());
@@ -29,7 +29,7 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->paginator->getNextPage());
     }
 
-    public function testGetPrevPage()
+    public function testGetPrevPage(): void
     {
         $this->paginator->setCurrentPage(2);
         $this->assertEquals(1, $this->paginator->getPrevPage());
@@ -39,7 +39,7 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->paginator->getPrevPage());
     }
 
-    public function testGetNextUrl()
+    public function testGetNextUrl(): void
     {
         $this->paginator->setCurrentPage(1);
         $this->paginator->setUrlPattern('/example/page(:num)');
@@ -50,7 +50,7 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->paginator->getNextUrl());
     }
 
-    public function testGetPrevUrl()
+    public function testGetPrevUrl(): void
     {
         $this->paginator->setCurrentPage(2);
         $this->paginator->setUrlPattern('/example/page(:num)');
@@ -64,7 +64,7 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getTestData
      */
-    public function testGetPages($numPages, $currentPage, $maxPages, $expected)
+    public function testGetPages(int $numPages, int $currentPage, int $maxPages, int $expected): void
     {
         $paginator = new Paginator($numPages, 1, $currentPage);
         $paginator->setMaxPagesToShow($maxPages);
@@ -75,7 +75,7 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $pageNums);
     }
 
-    public function getTestData()
+    public function getTestData(): array
     {
         return array(
             // num pages, current page, max pages to show, expected pagination
@@ -99,7 +99,7 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getRangeData
      */
-    public function testGetItemRanges($numItems, $itemsPerPage, $currentPage, $expectedFirst, $expectedLast)
+    public function testGetItemRanges(int $numItems, int $itemsPerPage, int $currentPage, int $expectedFirst, int $expectedLast): void
     {
         $paginator = new Paginator($numItems, $itemsPerPage, $currentPage);
 
@@ -109,7 +109,7 @@ class PaginatorTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    public function getRangeData()
+    public function getRangeData(): array
     {
         return array(
             // $numItems, $itemsPerPage, $currentPage, $expectedFirstItem, $expectedLastItem
